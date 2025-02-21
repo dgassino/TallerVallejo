@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,16 +79,17 @@
         .zocalo table {
             width: 48%;
         }
+        
     </style>
 </head>
 <body>
-    <div class="encabezado">
+    <div class="encabezado" style="background-color: rgba(223, 223, 223, 0.637);">
         <h1>TALLER RAÚL VALLEJO</h1>
         <p>Bv Domingo Zípoli 647 - Tel.: (0351) 4891203</p>
         <p>E-Mail: tallerraulvallejo@hotmail.com</p>
         <p>Microbollos - Cabina Pintura</p>
         <h1>CHAPA Y PINTURA</h1>
-        <h1>Chocado - Volcado</h1>
+        <h1>CHOCADO - VOLCADO</h1>
     </div>
 
     <form id="remitoForm">
@@ -117,19 +119,19 @@
             <div class="datos-cliente" >
                 <div size="30%">
                     <label for="seguros">Cía de Seguros:</label>
-                    <input type="text" id="seguros" name="seguros" size="40%">
+                    <input type="text" id="seguros" name="seguros" size="40%" style="background-color: #f8f8f8">
                     <label for="nombre">Apellido y Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" size="40%">
+                    <input type="text" id="nombre" name="nombre" size="40%" style="background-color: #f8f8f8">
                     <label for="domicilio">Domicilio:</label>
-                    <input type="text" id="domicilio" name="domicilio" size="40%">
+                    <input type="text" id="domicilio" name="domicilio" size="40%" style="background-color: #f8f8f8">
                 </div>
                 <div size="30%">
                     <label for="siniestro">Siniestro Nº:</label>
-                    <input type="text" id="siniestro" name="siniestro" size="40%">
+                    <input type="text" id="siniestro" name="siniestro" size="40%" style="background-color: #f8f8f8">
                     <label for="telefono">Teléfono:</label>
-                    <input type="text" id="telefono" name="telefono" size="40%">
+                    <input type="text" id="telefono" name="telefono" size="40%" style="background-color: #f8f8f8">
                     <label for="localidad">Localidad:</label>
-                    <input type="text" id="localidad" name="localidad" size="40%">
+                    <input type="text" id="localidad" name="localidad" size="40%" style="background-color: #f8f8f8">
                 </div>
             </div>
         </div>
@@ -526,40 +528,40 @@
         </div>
 
         <div class="section">
-            <h3>Para uso del Taller Operante</h3>
+            <h3>Para uso del Taller</h3>
         </table>
         <table>
             <tr>
                 <td>REPUESTOS:</td>
-                <td><input type="number" id="repuestos" name="repuestos" value=""></td>
+                <td><input type="number" id="repuestos" name="repuestos" value="" style="background-color: #f8f8f8"></td>
             </tr>
             <tr>
                 <td>CHAPA Y PINTURA:</td>
-                <td><input type="number" id="chapa_pintura" name="chapa_pintura" value=""></td>
+                <td><input type="number" id="chapa_pintura" name="chapa_pintura" value="" style="background-color: #f8f8f8"></td>
             </tr>
             <tr>
                 <td>MECÁNICA:</td>
-                <td><input type="number" id="mecanica" name="mecanica" value=""></td>
+                <td><input type="number" id="mecanica" name="mecanica" value="" style="background-color: #f8f8f8"></td>
             </tr>
             <tr>
                 <td>VARIOS:</td>
-                <td><input type="number" id="varios" name="varios" value=""></td>
+                <td><input type="number" id="varios" name="varios" value="" style="background-color: #f8f8f8"></td>
             </tr>
             <tr>
                 <td>SUBTOTAL:</td>
-                <td><input type="number" id="subtotal" name="subtotal" readonly></td>
+                <td><input type="number" id="subtotal" name="subtotal" readonly style="background-color: #f8f8f8"></td>
             </tr>
             <tr>
                 <td>IVA 21%:</td>
-                <td><input type="number" id="iva" name="iva" readonly></td>
+                <td><input type="number" id="iva" name="iva" readonly style="background-color: #f8f8f8"></td>
             </tr>
             <tr>
                 <td>OTRO IMPUESTO:</td>
-                <td><input type="number" id="otro_impuesto" name="otro_impuesto" value=""></td>
+                <td><input type="number" id="otro_impuesto" name="otro_impuesto" value="" style="background-color: #f8f8f8"></td>
             </tr>
             <tr>
                 <td>TOTAL:</td>
-                <td><input type="number" id="total" name="total" readonly></td>
+                <td><input type="number" id="total" name="total" readonly style="background-color: #f8f8f8"></td>
             </tr>
         </table>
     </div>
@@ -574,7 +576,7 @@
 
         <div class="buttons">
             <button type="button" onclick="limpiarCampos()">Limpiar Campos</button>
-            <button type="button" onclick="imprimirRemito()">Imprimir Remito</button>
+            <button type="button" onclick="imprimirPagina2()">Imprimir Remito</button>
         </div>
     </form>
 
@@ -616,28 +618,28 @@
             document.getElementById('total').value = total.toFixed(2);
         }
 
-        function imprimirRemito() {
-            const numRemito = document.getElementById('presupuesto').value;
-            const nombreCliente = document.getElementById('nombre').value.substring(0, 10);
-            const nombreArchivo = `${numRemito}-${nombreCliente}.pdf`;
 
-            const element = document.getElementById('remitoForm');
-            const opt = {
-                margin: 10,
-                filename: nombreArchivo,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-
-            // New Promise-based usage:
-            html2pdf().from(element).set(opt).save();
-
-            // Old Promise-based usage:
-            // html2pdf().from(element).set(opt).outputPdf().then(function (pdf) {
-            //     pdf.save();
-            // });
+    function imprimirPagina() {
+            window.print();
         }
+       
+    function imprimirPagina2() {
+        const numRemito = document.getElementById('presupuesto').value;
+        const nombreCliente = document.getElementById('nombre').value.substring(0, 15); // Obtener las primeras 15 letras del nombre
+        const nombreArchivo = `${numRemito}-${nombreCliente}.pdf`; // Combinar número de remito y nombre
+
+        const element = document.getElementById('remitoForm'); // El elemento que quieres imprimir
+      const opt = {
+        margin: 0,
+        filename: nombreArchivo,
+        image: { type: 'jpeg', quality: 0.50 },
+        html2canvas: { scale: 10 }, // Ajusta la escala para mejor calidad
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      html2pdf().from(element).set(opt).save();
+    }
+  
         document.getElementById('repuestos').addEventListener('input', calcularTotales);
         document.getElementById('chapa_pintura').addEventListener('input', calcularTotales);
         document.getElementById('mecanica').addEventListener('input', calcularTotales);
