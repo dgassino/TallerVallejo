@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remito Taller Raúl Vallejo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 2px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        @media (max-width: 600px) {
+            table, th, td {
+                font-size: 12px;
+            }
+            button {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+        .encabezado {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .encabezado h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .encabezado p {
+            margin: 5px 0;
+        }
+        .datos-cliente {
+            display: flex;
+            justify-content: stretch;
+            margin-bottom: 20px;
+        }
+        .datos-cliente label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .datos-cliente input {
+            width: 100%;
+            padding: 5px;
+        }
+        .zocalo {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .zocalo table {
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="encabezado">
+        <h1>TALLER RAÚL VALLEJO</h1>
+        <p>Bv Domingo Zípoli 647 - Tel.: (0351) 4891203</p>
+        <p>E-Mail: tallerraulvallejo@hotmail.com</p>
+        <p>Microbollos - Cabina Pintura</p>
+        <h1>CHAPA Y PINTURA</h1>
+        <h1>Chocado - Volcado</h1>
+    </div>
+
+    <form id="remitoForm">
+
+<!--       <TABLE size="70%">
+            <TR>
+                <TD><label for="seguros">Cía de Seguros:</label></TD>
+                <TD COLSPAN=2><input type="text" id="seguros" name="seguros" size="100%" style="border-style: none; size-adjust: 30%;" ></TD>
+                <TD><label for="siniestro">Siniestro Nº:</label></TD>
+                <TD COLSPAN=2><input type="text" id="siniestro" name="siniestro" size="100%" style="border-style: none; size-adjust: 30%;" ></TD>
+            </TR>
+            <TR>
+                <TD><label for="nombre">Apellido y Nombre:</label></TD>
+                <TD COLSPAN=2><input type="text" id="nombre" name="nombre" size="100%" style="border-style: none; size-adjust: 30%;" ></TD>
+                <TD><label for="telefono">Teléfono:</label></TD>
+                <TD COLSPAN=2><input type="text" id="telefono" name="telefono" size="100%" style="border-style: none; size-adjust: 30%;" ></TD>
+            </TR>
+            <TR>
+                <TD><label for="domicilio">Domicilio:</label></TD>
+                <TD COLSPAN=2><input type="text" id="domicilio" name="domicilio" size="100%" style="border-style: none; size-adjust: 30%;" ></TD>
+                <TD><label for="localidad">Localidad:</label></TD>
+                <TD COLSPAN=2><input type="text" id="localidad" name="localidad" size="100%" style="border-style: none; size-adjust: 30%;" ></TD>
+            </TR>
+        </TABLE>
+--> 
+        <div class="section">
+            <div class="datos-cliente" >
+                <div size="30%">
+                    <label for="seguros">Cía de Seguros:</label>
+                    <input type="text" id="seguros" name="seguros" size="40%">
+                    <label for="nombre">Apellido y Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" size="40%">
+                    <label for="domicilio">Domicilio:</label>
+                    <input type="text" id="domicilio" name="domicilio" size="40%">
+                </div>
+                <div size="30%">
+                    <label for="siniestro">Siniestro Nº:</label>
+                    <input type="text" id="siniestro" name="siniestro" size="40%">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" size="40%">
+                    <label for="localidad">Localidad:</label>
+                    <input type="text" id="localidad" name="localidad" size="40%">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <label for="presupuesto">Presupuesto Nº:</label>
+            <input type="text" id="presupuesto" name="presupuesto" readonly>
+            <label for="fecha">Fecha:</label>
+            <input type="text" id="fecha" name="fecha" readonly>
+        </div>
+
+        <div class="section">
+            <h3>Parte Delantera</h3>
+            <table>
+                <tr>
+                    <th>Elemento</th>
+                    <th>CAMBIAR</th>
+                    <th>REPARAR</th>
+                    <th>PINTAR</th>
+                </tr>
+                <tr>
+                    <td>PARAGOLPE</td>
+                    <td><input type="checkbox" name="cambiar_paragolpe"></td>
+                    <td><input type="checkbox" name="reparar_paragolpe"></td>
+                    <td><input type="checkbox" name="pintar_paragolpe"></td>
+                </tr>
+                <tr>
+                    <td>PANEL FRENTE</td>
+                    <td><input type="checkbox" name="cambiar_panel_frente"></td>
+                    <td><input type="checkbox" name="reparar_panel_frente"></td>
+                    <td><input type="checkbox" name="pintar_panel_frente"></td>
+                </tr>
+                <tr>
+                    <td>REJILLA RADIADOR</td>
+                    <td><input type="checkbox" name="cambiar_rejilla_radiador"></td>
+                    <td><input type="checkbox" name="reparar_rejilla_radiador"></td>
+                    <td><input type="checkbox" name="pintar_rejilla_radiador"></td>
+                </tr>
+                <tr>
+                    <td>GUARDABARRO DER.</td>
+                    <td><input type="checkbox" name="cambiar_guardabarro_der"></td>
+                    <td><input type="checkbox" name="reparar_guardabarro_der"></td>
+                    <td><input type="checkbox" name="pintar_guardabarro_der"></td>
+                </tr>
+                <tr>
+                    <td>PARARRUEDA DER.</td>
+                    <td><input type="checkbox" name="cambiar_pararrueda_der"></td>
+                    <td><input type="checkbox" name="reparar_pararrueda_der"></td>
+                    <td><input type="checkbox" name="pintar_pararrueda_der"></td>
+                </tr>
+                <tr>
+                    <td>GUARDABARRO IZQ.</td>
+                    <td><input type="checkbox" name="cambiar_guardabarro_izq"></td>
+                    <td><input type="checkbox" name="reparar_guardabarro_izq"></td>
+                    <td><input type="checkbox" name="pintar_guardabarro_izq"></td>
+                </tr>
+                <tr>
+                    <td>PARARRUEDA IZQ.</td>
+                    <td><input type="checkbox" name="cambiar_pararrueda_izq"></td>
+                    <td><input type="checkbox" name="reparar_pararrueda_izq"></td>
+                    <td><input type="checkbox" name="pintar_pararrueda_izq"></td>
+                </tr>
+                <tr>
+                    <td>FARO DERECHO</td>
+                    <td><input type="checkbox" name="cambiar_faro_der"></td>
+                    <td><input type="checkbox" name="reparar_faro_der"></td>
+                    <td><input type="checkbox" name="pintar_faro_der"></td>
+                </tr>
+                <tr>
+                    <td>FARO IZQUIERDO</td>
+                    <td><input type="checkbox" name="cambiar_faro_izq"></td>
+                    <td><input type="checkbox" name="reparar_faro_izq"></td>
+                    <td><input type="checkbox" name="pintar_faro_izq"></td>
+                </tr>
+                <tr>
+                    <td>FARITO DERECHO</td>
+                    <td><input type="checkbox" name="cambiar_farito_der"></td>
+                    <td><input type="checkbox" name="reparar_farito_der"></td>
+                    <td><input type="checkbox" name="pintar_farito_der"></td>
+                </tr>
+                <tr>
+                    <td>FARITO IZQUIERDO</td>
+                    <td><input type="checkbox" name="cambiar_farito_izq"></td>
+                    <td><input type="checkbox" name="reparar_farito_izq"></td>
+                    <td><input type="checkbox" name="pintar_farito_izq"></td>
+                </tr>
+                <tr>
+                    <td>CAPOT</td>
+                    <td><input type="checkbox" name="cambiar_capot"></td>
+                    <td><input type="checkbox" name="reparar_capot"></td>
+                    <td><input type="checkbox" name="pintar_capot"></td>
+                </tr>
+                <tr>
+                    <td>TORPEDO</td>
+                    <td><input type="checkbox" name="cambiar_torpedo"></td>
+                    <td><input type="checkbox" name="reparar_torpedo"></td>
+                    <td><input type="checkbox" name="pintar_torpedo"></td>
+                </tr>
+                <tr>
+                    <td>PARANTE</td>
+                    <td><input type="checkbox" name="cambiar_parante"></td>
+                    <td><input type="checkbox" name="reparar_parante"></td>
+                    <td><input type="checkbox" name="pintar_parante"></td>
+                </tr>
+                <tr>
+                    <td>PAR /CRIST /MOLO</td>
+                    <td><input type="checkbox" name="cambiar_par_crist_molo"></td>
+                    <td><input type="checkbox" name="reparar_par_crist_molo"></td>
+                    <td><input type="checkbox" name="pintar_par_crist_molo"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Parte Trasera</h3>
+            <table>
+                <tr>
+                    <th>Elemento</th>
+                    <th>CAMBIAR</th>
+                    <th>REPARAR</th>
+                    <th>PINTAR</th>
+                </tr>
+                <tr>
+                    <td>PARAGOLPE</td>
+                    <td><input type="checkbox" name="cambiar_paragolpe_tras"></td>
+                    <td><input type="checkbox" name="reparar_paragolpe_tras"></td>
+                    <td><input type="checkbox" name="pintar_paragolpe_tras"></td>
+                </tr>
+                <tr>
+                    <td>PANEL</td>
+                    <td><input type="checkbox" name="cambiar_panel_tras"></td>
+                    <td><input type="checkbox" name="reparar_panel_tras"></td>
+                    <td><input type="checkbox" name="pintar_panel_tras"></td>
+                </tr>
+                <tr>
+                    <td>TAPA BAUL</td>
+                    <td><input type="checkbox" name="cambiar_tapa_baul"></td>
+                    <td><input type="checkbox" name="reparar_tapa_baul"></td>
+                    <td><input type="checkbox" name="pintar_tapa_baul"></td>
+                </tr>
+                <tr>
+                    <td>PISO BAUL</td>
+                    <td><input type="checkbox" name="cambiar_piso_baul"></td>
+                    <td><input type="checkbox" name="reparar_piso_baul"></td>
+                    <td><input type="checkbox" name="pintar_piso_baul"></td>
+                </tr>
+                <tr>
+                    <td>LUN /CRIST /MOLO</td>
+                    <td><input type="checkbox" name="cambiar_lun_crist_molo"></td>
+                    <td><input type="checkbox" name="reparar_lun_crist_molo"></td>
+                    <td><input type="checkbox" name="pintar_lun_crist_molo"></td>
+                </tr>
+                <tr>
+                    <td>GUARDABARRO DER.</td>
+                    <td><input type="checkbox" name="cambiar_guardabarro_der_tras"></td>
+                    <td><input type="checkbox" name="reparar_guardabarro_der_tras"></td>
+                    <td><input type="checkbox" name="pintar_guardabarro_der_tras"></td>
+                </tr>
+                <tr>
+                    <td>GUARDABARRO IZQ.</td>
+                    <td><input type="checkbox" name="cambiar_guardabarro_izq_tras"></td>
+                    <td><input type="checkbox" name="reparar_guardabarro_izq_tras"></td>
+                    <td><input type="checkbox" name="pintar_guardabarro_izq_tras"></td>
+                </tr>
+                <tr>
+                    <td>PARARRUEDA DER.</td>
+                    <td><input type="checkbox" name="cambiar_pararrueda_der_tras"></td>
+                    <td><input type="checkbox" name="reparar_pararrueda_der_tras"></td>
+                    <td><input type="checkbox" name="pintar_pararrueda_der_tras"></td>
+                </tr>
+                <tr>
+                    <td>PARARRUEDA IZQ.</td>
+                    <td><input type="checkbox" name="cambiar_pararrueda_izq_tras"></td>
+                    <td><input type="checkbox" name="reparar_pararrueda_izq_tras"></td>
+                    <td><input type="checkbox" name="pintar_pararrueda_izq_tras"></td>
+                </tr>
+                <tr>
+                    <td>FARO DERECHO</td>
+                    <td><input type="checkbox" name="cambiar_faro_der_tras"></td>
+                    <td><input type="checkbox" name="reparar_faro_der_tras"></td>
+                    <td><input type="checkbox" name="pintar_faro_der_tras"></td>
+                </tr>
+                <tr>
+                    <td>FARO IZQUIERDO</td>
+                    <td><input type="checkbox" name="cambiar_faro_izq_tras"></td>
+                    <td><input type="checkbox" name="reparar_faro_izq_tras"></td>
+                    <td><input type="checkbox" name="pintar_faro_izq_tras"></td>
+                </tr>
+                <tr>
+                    <td>TECHO</td>
+                    <td><input type="checkbox" name="cambiar_techo"></td>
+                    <td><input type="checkbox" name="reparar_techo"></td>
+                    <td><input type="checkbox" name="pintar_techo"></td>
+                </tr>
+                <tr>
+                    <td>ESPEJO</td>
+                    <td><input type="checkbox" name="cambiar_espejo"></td>
+                    <td><input type="checkbox" name="reparar_espejo"></td>
+                    <td><input type="checkbox" name="pintar_espejo"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Lateral Derecho</h3>
+            <table>
+                <tr>
+                    <th>Elemento</th>
+                    <th>CAMBIAR</th>
+                    <th>REPARAR</th>
+                    <th>PINTAR</th>
+                </tr>
+                <tr>
+                    <td>PUERTA DELANTERA</td>
+                    <td><input type="checkbox" name="cambiar_puerta_del_der"></td>
+                    <td><input type="checkbox" name="reparar_puerta_del_der"></td>
+                    <td><input type="checkbox" name="pintar_puerta_del_der"></td>
+                </tr>
+                <tr>
+                    <td>PUERTA DEL</td>
+                    <td><input type="checkbox" name="cambiar_puerta_del_der"></td>
+                    <td><input type="checkbox" name="reparar_puerta_del_der"></td>
+                    <td><input type="checkbox" name="pintar_puerta_del_der"></td>
+                </tr>
+                <tr>
+                    <td>PUERTA TRASERA</td>
+                    <td><input type="checkbox" name="cambiar_puerta_tras_der"></td>
+                    <td><input type="checkbox" name="reparar_puerta_tras_der"></td>
+                    <td><input type="checkbox" name="pintar_puerta_tras_der"></td>
+                </tr>
+                <tr>
+                    <td>PUERTA TRAS</td>
+                    <td><input type="checkbox" name="cambiar_puerta_tras_der"></td>
+                    <td><input type="checkbox" name="reparar_puerta_tras_der"></td>
+                    <td><input type="checkbox" name="pintar_puerta_tras_der"></td>
+                </tr>
+                <tr>
+                    <td>PANEL</td>
+                    <td><input type="checkbox" name="cambiar_panel_der"></td>
+                    <td><input type="checkbox" name="reparar_panel_der"></td>
+                    <td><input type="checkbox" name="pintar_panel_der"></td>
+                </tr>
+                <tr>
+                    <td>PARENTE</td>
+                    <td><input type="checkbox" name="cambiar_parente_der"></td>
+                    <td><input type="checkbox" name="reparar_parente_der"></td>
+                    <td><input type="checkbox" name="pintar_parente_der"></td>
+                </tr>
+                <tr>
+                    <td>PARENTE CENTRO</td>
+                    <td><input type="checkbox" name="cambiar_parente_centro_der"></td>
+                    <td><input type="checkbox" name="reparar_parente_centro_der"></td>
+                    <td><input type="checkbox" name="pintar_parente_centro_der"></td>
+                </tr>
+                <tr>
+                    <td>PARENTE TRASERO</td>
+                    <td><input type="checkbox" name="cambiar_parente_trasero_der"></td>
+                    <td><input type="checkbox" name="reparar_parente_trasero_der"></td>
+                    <td><input type="checkbox" name="pintar_parente_trasero_der"></td>
+                </tr>
+                <tr>
+                    <td>ZOCALO</td>
+                    <td><input type="checkbox" name="cambiar_zocalo_der"></td>
+                    <td><input type="checkbox" name="reparar_zocalo_der"></td>
+                    <td><input type="checkbox" name="pintar_zocalo_der"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Lateral Izquierdo</h3>
+            <table>
+                <tr>
+                    <th>Elemento</th>
+                    <th>CAMBIAR</th>
+                    <th>REPARAR</th>
+                    <th>PINTAR</th>
+                </tr>
+                <tr>
+                    <td>PUERTA DELANTERA</td>
+                    <td><input type="checkbox" name="cambiar_puerta_del_izq"></td>
+                    <td><input type="checkbox" name="reparar_puerta_del_izq"></td>
+                    <td><input type="checkbox" name="pintar_puerta_del_izq"></td>
+                </tr>
+                <tr>
+                    <td>PUERTA DEL</td>
+                    <td><input type="checkbox" name="cambiar_puerta_del_izq"></td>
+                    <td><input type="checkbox" name="reparar_puerta_del_izq"></td>
+                    <td><input type="checkbox" name="pintar_puerta_del_izq"></td>
+                </tr>
+                <tr>
+                    <td>PUERTA TRASERA</td>
+                    <td><input type="checkbox" name="cambiar_puerta_tras_izq"></td>
+                    <td><input type="checkbox" name="reparar_puerta_tras_izq"></td>
+                    <td><input type="checkbox" name="pintar_puerta_tras_izq"></td>
+                </tr>
+                <tr>
+                    <td>PUERTA TRAS</td>
+                    <td><input type="checkbox" name="cambiar_puerta_tras_izq"></td>
+                    <td><input type="checkbox" name="reparar_puerta_tras_izq"></td>
+                    <td><input type="checkbox" name="pintar_puerta_tras_izq"></td>
+                </tr>
+                <tr>
+                    <td>PANEL</td>
+                    <td><input type="checkbox" name="cambiar_panel_izq"></td>
+                    <td><input type="checkbox" name="reparar_panel_izq"></td>
+                    <td><input type="checkbox" name="pintar_panel_izq"></td>
+                </tr>
+                <tr>
+                    <td>PARENTE</td>
+                    <td><input type="checkbox" name="cambiar_parente_izq"></td>
+                    <td><input type="checkbox" name="reparar_parente_izq"></td>
+                    <td><input type="checkbox" name="pintar_parente_izq"></td>
+                </tr>
+                <tr>
+                    <td>PARENTE CENTRO</td>
+                    <td><input type="checkbox" name="cambiar_parente_centro_izq"></td>
+                    <td><input type="checkbox" name="reparar_parente_centro_izq"></td>
+                    <td><input type="checkbox" name="pintar_parente_centro_izq"></td>
+                </tr>
+                <tr>
+                    <td>PARENTE TRASERO</td>
+                    <td><input type="checkbox" name="cambiar_parente_trasero_izq"></td>
+                    <td><input type="checkbox" name="reparar_parente_trasero_izq"></td>
+                    <td><input type="checkbox" name="pintar_parente_trasero_izq"></td>
+                </tr>
+                <tr>
+                    <td>ZOCALO</td>
+                    <td><input type="checkbox" name="cambiar_zocalo_izq"></td>
+                    <td><input type="checkbox" name="reparar_zocalo_izq"></td>
+                    <td><input type="checkbox" name="pintar_zocalo_izq"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Otros</h3>
+            <table>
+                <tr>
+                    <th>Elemento</th>
+                    <th>DES / MONTAR</th>
+                    <th>REPARAR</th>
+                    <th>PINTAR</th>
+                </tr>
+                <tr>
+                    <td>MOTOR</td>
+                    <td><input type="checkbox" name="desmontar_motor"></td>
+                    <td><input type="checkbox" name="reparar_motor"></td>
+                    <td><input type="checkbox" name="pintar_motor"></td>
+                </tr>
+                <tr>
+                    <td>MECÁNICA</td>
+                    <td><input type="checkbox" name="desmontar_mecanica"></td>
+                    <td><input type="checkbox" name="reparar_mecanica"></td>
+                    <td><input type="checkbox" name="pintar_mecanica"></td>
+                </tr>
+                <tr>
+                    <td>ELECTRICIDAD</td>
+                    <td><input type="checkbox" name="desmontar_electricidad"></td>
+                    <td><input type="checkbox" name="reparar_electricidad"></td>
+                    <td><input type="checkbox" name="pintar_electricidad"></td>
+                </tr>
+                <tr>
+                    <td>TREN DELANTERO</td>
+                    <td><input type="checkbox" name="desmontar_tren_del"></td>
+                    <td><input type="checkbox" name="reparar_tren_del"></td>
+                    <td><input type="checkbox" name="pintar_tren_del"></td>
+                </tr>
+                <tr>
+                    <td>TREN TRASERO</td>
+                    <td><input type="checkbox" name="desmontar_tren_tras"></td>
+                    <td><input type="checkbox" name="reparar_tren_tras"></td>
+                    <td><input type="checkbox" name="pintar_tren_tras"></td>
+                </tr>
+                <tr>
+                    <td>TAPICERIA</td>
+                    <td><input type="checkbox" name="desmontar_tapiceria"></td>
+                    <td><input type="checkbox" name="reparar_tapiceria"></td>
+                    <td><input type="checkbox" name="pintar_tapiceria"></td>
+                </tr>
+                <tr>
+                    <td>INTERIOR</td>
+                    <td><input type="checkbox" name="desmontar_interior"></td>
+                    <td><input type="checkbox" name="reparar_interior"></td>
+                    <td><input type="checkbox" name="pintar_interior"></td>
+                </tr>
+                <tr>
+                    <td>Otros</td>
+                    <td><input type="checkbox" name="desmontar_otros"></td>
+                    <td><input type="checkbox" name="reparar_otros"></td>
+                    <td><input type="checkbox" name="pintar_otros"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3>Para uso del Taller Operante</h3>
+        </table>
+        <table>
+            <tr>
+                <td>REPUESTOS:</td>
+                <td><input type="number" id="repuestos" name="repuestos" value=""></td>
+            </tr>
+            <tr>
+                <td>CHAPA Y PINTURA:</td>
+                <td><input type="number" id="chapa_pintura" name="chapa_pintura" value=""></td>
+            </tr>
+            <tr>
+                <td>MECÁNICA:</td>
+                <td><input type="number" id="mecanica" name="mecanica" value=""></td>
+            </tr>
+            <tr>
+                <td>VARIOS:</td>
+                <td><input type="number" id="varios" name="varios" value=""></td>
+            </tr>
+            <tr>
+                <td>SUBTOTAL:</td>
+                <td><input type="number" id="subtotal" name="subtotal" readonly></td>
+            </tr>
+            <tr>
+                <td>IVA 21%:</td>
+                <td><input type="number" id="iva" name="iva" readonly></td>
+            </tr>
+            <tr>
+                <td>OTRO IMPUESTO:</td>
+                <td><input type="number" id="otro_impuesto" name="otro_impuesto" value=""></td>
+            </tr>
+            <tr>
+                <td>TOTAL:</td>
+                <td><input type="number" id="total" name="total" readonly></td>
+            </tr>
+        </table>
+    </div>
+        </div>
+
+        <TABLE size="70%">
+            <TR>
+                <TD COLSPAN=2 style="background-color: rgb(230, 229, 229); text-align: center; font-size: 18; font-family: Georgia, 'Times New Roman', Times, serif; ">Las reparaciones deberán ser efectuadas conforme a las especificaciones este presupuesto en la suma indicada en TOTAL. Todo imprevisto se cotizará por separado.</TD>
+            </TR>
+                 <td style="background-color: rgb(230, 229, 229); text-align: center; font-size: 18; font-family: Georgia, 'Times New Roman', Times, serif; font-style: oblique; ">Presupuesto válido por <input type="number" id="valido_dias" name="valido_dias" value="" size="5px">  días.-</td>
+        </table>
+
+        <div class="buttons">
+            <button type="button" onclick="limpiarCampos()">Limpiar Campos</button>
+            <button type="button" onclick="imprimirRemito()">Imprimir Remito</button>
+        </div>
+    </form>
+
+    <script>
+        function generarNumeroPresupuesto() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            return `${year}${month}${day}-${hours}${minutes}${seconds}`;
+        }
+
+        document.getElementById('presupuesto').value = generarNumeroPresupuesto();
+        document.getElementById('fecha').value = new Date().toISOString().split('T')[0];
+
+        function limpiarCampos() {
+            document.getElementById('remitoForm').reset();
+            document.getElementById('presupuesto').value = generarNumeroPresupuesto();
+            document.getElementById('fecha').value = new Date().toISOString().split('T')[0];
+        }
+
+        calcularTotales(); // Calcular valores iniciales
+
+        function calcularTotales() {
+            const repuestos = parseFloat(document.getElementById('repuestos').value) || 0;
+            const chapaPintura = parseFloat(document.getElementById('chapa_pintura').value) || 0;
+            const mecanica = parseFloat(document.getElementById('mecanica').value) || 0;
+            const varios = parseFloat(document.getElementById('varios').value) || 0;
+            const subtotal = repuestos + chapaPintura + mecanica + varios;
+            const iva = subtotal * 0.21;
+            const otroImpuesto = parseFloat(document.getElementById('otro_impuesto').value) || 0;
+            const total = subtotal + iva + otroImpuesto;
+
+            document.getElementById('subtotal').value = subtotal.toFixed(2);
+            document.getElementById('iva').value = iva.toFixed(2);
+            document.getElementById('total').value = total.toFixed(2);
+        }
+
+        function imprimirRemito() {
+            const numRemito = document.getElementById('presupuesto').value;
+            const nombreCliente = document.getElementById('nombre').value.substring(0, 10);
+            const nombreArchivo = `${numRemito}-${nombreCliente}.pdf`;
+
+            const element = document.getElementById('remitoForm');
+            const opt = {
+                margin: 10,
+                filename: nombreArchivo,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // New Promise-based usage:
+            html2pdf().from(element).set(opt).save();
+
+            // Old Promise-based usage:
+            // html2pdf().from(element).set(opt).outputPdf().then(function (pdf) {
+            //     pdf.save();
+            // });
+        }
+        document.getElementById('repuestos').addEventListener('input', calcularTotales);
+        document.getElementById('chapa_pintura').addEventListener('input', calcularTotales);
+        document.getElementById('mecanica').addEventListener('input', calcularTotales);
+        document.getElementById('varios').addEventListener('input', calcularTotales);
+        document.getElementById('otro_impuesto').addEventListener('input', calcularTotales);
+
+    </script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>
